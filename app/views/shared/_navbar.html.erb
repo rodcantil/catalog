@@ -5,9 +5,14 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="nav-item">
+            <div class="nav-item mx-2">
                 <%= link_to "Categories", categories_path, class:"nav-link active", ariaCurrent: "page" %>
             </div>
+            <% if user_signed_in? %>
+                <div class="nav-item mx-2">
+                    <%= link_to 'Tus reacciones', my_reactions_path, class: 'nav-link' %>
+                </div>
+            <% end %>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuarios</a>

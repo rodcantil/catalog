@@ -3,6 +3,13 @@
 <%= render @product %>
 
 <div>
+  <%= render 'reactions/options' %>
+</div>
+<div>
+  <%= render 'reactions/counters' %>
+</div>
+
+<div>
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>
 
