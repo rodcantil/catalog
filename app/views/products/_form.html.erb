@@ -1,0 +1,42 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :price, style: "display: block" %>
+    <%= form.number_field :price %>
+  </div>
+
+  <div>
+    <%= form.label :size, style: "display: block" %>
+    <%= form.number_field :size %>
+  </div>
+
+  <div>
+    <%= form.label :category_ids, style: "display: block" %>
+    <%= form.collection_check_boxes(:category_ids, @categories, :id, :name) do |b| %>
+        <div>
+          <span> <%= b.label {b.check_box + "  " + b.text} %> </span>
+        </div> 
+    <% end %>
+  </div>
+    <%# <%= form.select :category_ids, options_from_collection_for_select(@categories, :id, :name) <>> %>
+
+  <div>
+    <%= form.submit %>
+    <% end %>
+  </div>
