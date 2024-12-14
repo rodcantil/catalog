@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @product %>
-
+<div>
+  <%= render 'products/show_categories' %>
+</div>
 <div>
   <%= render 'reactions/options' %>
 </div>
@@ -9,9 +9,11 @@
   <%= render 'reactions/counters' %>
 </div>
 
-<div>
+<div class="container">
   <%= link_to "Edit this product", edit_product_path(@product) %> |
   <%= link_to "Back to products", products_path %>
-
+</div>
+  <br>
+<div class="container">
   <%= button_to "Destroy this product", @product, method: :delete %>
 </div>
